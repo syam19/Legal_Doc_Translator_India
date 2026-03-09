@@ -22,7 +22,7 @@ The system runs documents through a 4-layer pipeline:
 ### Requirements
 - Python 3.9+
 - Node.js 16+
-- Free Groq API key (no credit card) from [console.groq.com](https://console.groq.com)
+- Groq API key
 
 ### Backend
 
