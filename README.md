@@ -31,7 +31,7 @@ cd backend
 pip install -r requirements.txt
 ```
 
-Open `app.py` and paste your Groq key on line 25:
+Open `app.py` and paste your Groq key :
 ```python
 GROQ_API_KEY = "gsk_your_key_here"
 ```
