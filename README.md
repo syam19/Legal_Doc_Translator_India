@@ -178,4 +178,3 @@ The `TERM_TRANSLATIONS` dictionary in `pipeline.py` contains curated translation
 
 - PDF support requires `pdfplumber`
 -  Scanned/image PDFs are not supported — only text-based PDFs.
-- This tool is for accessibility and reference only. For official court proceedings, use a certified legal translator.
