@@ -104,5 +104,4 @@ The `TERM_TRANSLATIONS` dictionary in `pipeline.py` contains curated translation
 ## Notes
 
 - PDF support requires `pdfplumber`. Scanned/image PDFs are not supported — only text-based PDFs.
-- The Groq free tier allows 500,000 tokens per day, which is enough for several hundred document translations.
 - This tool is for accessibility and reference only. For official court proceedings, use a certified legal translator.
