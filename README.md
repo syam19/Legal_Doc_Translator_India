@@ -1,21 +1,94 @@
-# NyayaVaani — Indian Legal Document Translator
+NyayaVaani — Indian Legal Document Translator
 
-Translates Indian court documents from English into 12 regional languages while preserving legal terminology. Each legal term appears in its original English form with the regional translation in brackets — e.g. `Petitioner [పెటిషనర్/యాచికదారుడు]`.
+NyayaVaani is an AI-powered legal document translator designed for the Indian judicial ecosystem. It translates English court documents into 12 Indian regional languages while preserving important legal terminology.
 
-**Supported languages:** Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali, Gujarati, Punjabi, Odia, Urdu, Assamese
+Unlike standard translation systems, NyayaVaani ensures that legal terms remain in English while displaying the regional translation in brackets for clarity.
 
----
+Example:
 
-## How it works
+Petitioner → Petitioner [పెటిషనర్ / యాచికదారుడు]
 
-The system runs documents through a 4-layer pipeline:
+This approach helps lawyers, litigants, and citizens understand court documents in their native language without losing the legal meaning.
 
-1. **LegalNER** — custom rule-based NER that detects 100+ Indian legal terms across 7 categories (roles, writs, Latin terms, courts, document types, procedures, constitutional references)
-2. **PreProcessor** — protects case numbers, dates, and section references using UUID tokens so the translation engine does not touch them
-3. **Groq LLaMA 3.3 70B** — translates the document; a purpose-built prompt tells it exactly which terms to keep in English with bracket translations
-4. **PostProcessor** — restores protected tokens, fixes any transliteration errors, injects bracket translations for any terms the model missed
+Features
 
----
+• Translates legal documents into 12 Indian regional languages
+• Preserves English legal terminology with bracket translations
+• Custom Legal Named Entity Recognition (NER) for Indian legal terms
+• Protection of case numbers, dates, and section references
+• PDF text extraction support for text-based documents
+• REST API for programmatic access
+• Simple web interface for document translation
+
+Supported Languages
+
+NyayaVaani currently supports translation into the following languages:
+
+Hindi
+Telugu
+Tamil
+Kannada
+Malayalam
+Marathi
+Bengali
+Gujarati
+Punjabi
+Odia
+Urdu
+Assamese
+
+System Architecture
+
+The system processes legal documents through a 4-layer translation pipeline designed to preserve legal accuracy.
+
+1. LegalNER
+
+A custom rule-based Named Entity Recognition engine that detects 100+ Indian legal terms across 7 categories:
+
+• Legal roles
+• Writs
+• Latin legal terms
+• Courts
+• Document types
+• Legal procedures
+• Constitutional references
+
+2. PreProcessor
+
+Before translation begins, the system protects sensitive structured data such as:
+
+• Case numbers
+• Dates
+• Section references
+
+These elements are replaced with UUID tokens so the translation model does not modify them.
+
+3. Groq LLaMA 3.3 70B
+
+The protected document is then translated using LLaMA 3.3 70B via Groq API.
+
+A custom prompt ensures that:
+
+• legal terms remain in English
+• regional translations appear inside brackets
+
+4. PostProcessor
+
+After translation, the system:
+
+• Restores protected UUID tokens
+• Fixes transliteration inconsistencies
+• Injects bracket translations for any missed legal terms
+
+Example Translation
+
+Input (English)
+
+The petitioner filed a writ petition before the High Court.
+
+Output (Telugu)
+
+The Petitioner [పెటిషనర్ / యాచికదారుడు] filed a Writ Petition [వ్రిట్ పిటిషన్] before the High Court [హై కోర్ట్].
 
 ## Setup
 
