@@ -1,0 +1,28 @@
+services:
+  # -----------------------------------------------------
+  # 1. Python Flask Backend
+  # -----------------------------------------------------
+  - type: web
+    name: nyayavaani-backend
+    env: python
+    buildCommand: "cd backend && pip install -r requirements.txt"
+    startCommand: "cd backend && gunicorn app:app --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: GROQ_API_KEY
+        sync: false # This indicates you'll provide it via the Render Dashboard securely
+
+  # -----------------------------------------------------
+  # 2. React Frontend
+  # -----------------------------------------------------
+  - type: web
+    name: nyayavaani-frontend
+    env: static
+    buildCommand: "cd frontend && npm install && npm run build"
+    staticPublishPath: "./frontend/build"
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: REACT_APP_API_URL
+        sync: false # This will be the URL of your backend + /api, e.g., https://nyayavaani-backend.onrender.com/api
