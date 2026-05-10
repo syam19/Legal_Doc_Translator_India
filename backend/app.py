@@ -159,6 +159,27 @@ def translate_with_groq(text: str, target_lang: str, detected_terms: list) -> st
 # ROUTES
 # ─────────────────────────────────────────────────────────────────────────────
 
+@app.route("/", methods=["GET"])
+def home():
+    return """
+    <html>
+        <head><title>NyayaVaani Backend API</title></head>
+        <body style="font-family: sans-serif; padding: 40px; text-align: center; background-color: #f4f4f9;">
+            <h1 style="color: #333;">NyayaVaani Backend API is Running! 🚀</h1>
+            <p style="font-size: 18px; color: #666;">This URL serves the backend API for the translation service.</p>
+            <div style="margin-top: 20px; padding: 20px; background: white; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <p style="margin: 0;"><strong>To view the application UI, you need to:</strong></p>
+                <ol style="text-align: left; margin-bottom: 0;">
+                    <li>Go to Render Dashboard.</li>
+                    <li>Create a new <strong>Static Site</strong> for the frontend.</li>
+                    <li>Set Build Command: <code>cd frontend && npm install && npm run build</code></li>
+                    <li>Set Publish Directory: <code>frontend/build</code></li>
+                </ol>
+            </div>
+        </body>
+    </html>
+    """
+
 @app.route("/api/health", methods=["GET"])
 def health():
     api_ok = GROQ_API_KEY != "YOUR_GROQ_KEY_HERE"

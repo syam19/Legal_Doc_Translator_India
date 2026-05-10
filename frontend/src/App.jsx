@@ -1,6 +1,9 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 
-const API = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+const API = process.env.REACT_APP_API_URL || 
+  (window.location.hostname === "localhost" 
+    ? "http://localhost:5000/api" 
+    : "https://legal-doc-translator-india.onrender.com/api");
 
 const DOC_TYPES = [
   { id: "order",    label: "Court Order",   icon: "⚖️" },
